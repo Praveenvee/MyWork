@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.div{
+			background-image: url('ab.jpg');
+			height:700px;
+			width: 1243px;
+			position: relative; /*line added*/
+			border:4px solid orange;
+		}
+		.ball{
+			height:50px;
+			width: 50px;
+			background-color: black;
+			position: absolute;
+			border-radius: 50px; /*line added*/
+			position: absolute; /*line added*/
+		}
+		.pig{
+			height: 30px;
+			width : 30px;
+			border-radius: 30px;
+			background-color: blue;
+			position: absolute;
+			bottom: 100px;
+			right: 0px;
+		}
+		h1{
+		    text-align: center;
+			color: green;
+			font-family: Times New Roman;
+		}
+	</style>
+</head>
+<body>
+	<h1> Drop the CoCo</h1>
+	<div class="div"></div>
+	
+	<h2 id="ballxy"></h2>
+	
+	
+	<script src="jfile.js"></script>
+	<script>
+		var x,y;
+		$(document).ready(function(){
+			var coco;
+			$(".div").mousemove(function(e){
+			     x=e.pageX;
+				 y=e.pageY;
+				
+			});
+			
+			
+			$(".div").click(function(){
+				
+				coco = $("<div/>", {class: "ball"});
+				coco.css({left: x-30, top: y-30});
+				coco.appendTo(".div");
+				coco.animate({ top: $('.div').width()-690 },1000,function(){$('.ball').fadeOut(300)});
+				
+	  
+			});
+			var x = parseInt($('.ball').css("top"));
+			console.log(x);
+
+	       
+			function createPig(){
+				var Pig = $("<div/>",{class:"pig"});
+				Pig.appendTo(".div");
+				Pig.animate({left:"0px"},9000);
+				Pig.fadeOut(300);
+				
+			}
+			function random(){
+				var time = Math.floor((Math.random()*1000)+1);
+			}
+			createPig();
+			
+		    setInterval(function(){
+				createPig();
+			},1500);
+			
+			
+			
+			
+		});
+		
+	</script>
+</body>
+</html>

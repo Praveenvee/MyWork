@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.div{
+			background-color: greenyellow;
+			height:500px;
+			width: 500px;
+			
+		}
+		.ball{
+			height:50px;
+			width: 50px;
+			background-color: black;
+			position: absolute;
+		}
+	</style>
+</head>
+<body>
+	<div class="div"></div>
+	<p id="para">paragraph</p>
+	<script src="jfile.js"></script>
+	<script>
+		var x,y;
+		$(document).ready(function(){
+			
+			$(".div").mousemove(function(e){
+			     x=e.pageX+"px";
+				 y=e.pageY+"px";
+				$("#para").html(x+","+y);
+			});
+			$(".div").click(function(){
+			var  coco=$(".div").append("<div class='ball'></div>");
+			$(".ball").animate({top:"460px"},2000);	
+				
+				
+			});
+			
+		});
+		
+	</script>
+</body>
+</html>

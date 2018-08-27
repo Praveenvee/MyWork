@@ -1,0 +1,36 @@
+<html>
+	<Head><script src="jfile.js"></script>
+		<title>work</title>
+		<style>
+			
+		</style>
+	</Head>
+	<body>
+		<script>
+			
+			function alrt(){
+		  document.getElementById('p').innerHTML= "podiiii";
+			}
+			
+	            var myCalculator = (function(){
+					function addNumbers(a,b){
+						document.getElementById('p').innerHTML=(a+b);
+						console.log(a+b);
+					}
+					function minusNumbers(a,b){
+						console.log(a-b);
+					}
+					return {
+						add : addNumbers
+						sub : minusNumbers
+					}
+				}
+			)();
+			myCalculator.add(2,3)
+			myCalculator.sub(5,3)
+		</script>
+		<button onclick="alrt()" value="alert her"> alert </button>
+		<p id="p"></p>
+		
+	</body>
+</html>
